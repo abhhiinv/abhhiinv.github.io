@@ -98,7 +98,7 @@ body {
 nav.top-nav {
   position: fixed; inset: 0 0 auto 0; z-index: 200;
   background: var(--nav-bg);
-  height: 52px;
+  height: 78px;
   padding: 0 2.5rem;
   display: flex; align-items: center; justify-content: space-between;
   gap: 0;
@@ -117,7 +117,7 @@ nav.top-nav {
 .nav-links {
   display: flex;
   list-style: none;
-  height: 52px;
+  height: 78px;
 }
 .nav-links li { border-left: 1px solid var(--nav-rule); }
 .nav-links a {
@@ -137,7 +137,7 @@ nav.top-nav {
 /* theme toggle */
 .theme-btn {
   display: flex; align-items: center; gap: .45rem;
-  height: 52px;
+  height: 78px;
   padding: 0 1.1rem;
   background: none; border: none; border-left: 1px solid var(--nav-rule);
   cursor: pointer;
@@ -162,7 +162,7 @@ html.dark .icon-moon { display:block; }
   display: none;
   flex-direction: column; justify-content: center; align-items: center;
   gap: 5px;
-  width: 46px; height: 52px;
+  width: 46px; height: 78px;
   background: none; border: none; border-left: 1px solid var(--nav-rule);
   cursor: pointer; padding: 0 13px;
 }
@@ -179,7 +179,7 @@ html.dark .icon-moon { display:block; }
 /* mobile dropdown */
 nav.mob-menu {
   display: none;
-  position: fixed; top:52px; left:0; right:0; z-index:199;
+  position: fixed; top:78px; left:0; right:0; z-index:199;
   background: var(--nav-bg);
   border-top: 1px solid var(--nav-rule);
   flex-direction: column;
@@ -202,7 +202,7 @@ nav.mob-menu a:last-child { border-bottom: none; }
 nav.mob-menu a:hover { color: var(--nav-txt); background: rgba(255,255,255,.05); }
 
 /* ── MAIN ──────────────────────────────── */
-main { padding-top: 52px; }
+main { padding-top: 78px; }
 
 .section-wrap {
   padding: 5rem 3rem;
@@ -231,7 +231,7 @@ main { padding-top: 52px; }
 
 /* ── HERO ──────────────────────────────── */
 #hero {
-  min-height: calc(100vh - 52px);
+  min-height: calc(100vh - 78px);
   display: grid;
   grid-template-rows: 1fr auto;
   border-bottom: 1px solid var(--bg-line);
@@ -509,7 +509,7 @@ footer {
   flex-wrap:wrap; gap:1.5rem;
 }
 .ft-name {
-  font-family:var(--display); font-size:1.1rem; letter-spacing:.1em;
+  font-family:var(--display); font-size:1.8rem; letter-spacing:.1em;
   color:var(--nav-txt); margin-bottom:.25rem;text-decoration:none;
 }
 .ft-copy { font-family:var(--mono); font-size:.63rem; letter-spacing:.1em; color:var(--nav-dim); }
