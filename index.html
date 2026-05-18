@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abhinav Sajeev — Portfolio</title>
+<title>Abhinav Sajeev - Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 /*
@@ -46,7 +46,7 @@
   /* accent */
   --red:       #c8392b;
 
-  /* nav & footer are ALWAYS dark — never inherit page theme */
+  /* nav & footer are ALWAYS dark - never inherit page theme */
   --nav-bg:    #0f0e0d;
   --nav-txt:   #f2ede6;
   --nav-dim:   rgba(242,237,230,0.58);
@@ -73,7 +73,7 @@ html.dark {
 
   --red:       #e05a47;
 
-  /* nav/footer colours don't change — vars are fixed above */
+  /* nav/footer colours don't change - vars are fixed above */
 }
 
 html { scroll-behavior: smooth; }
@@ -157,7 +157,7 @@ nav.top-nav {
 html.dark .icon-sun  { display:none; }
 html.dark .icon-moon { display:block; }
 
-/* hamburger — hidden on desktop */
+/* hamburger - hidden on desktop */
 .hamburger {
   display: none;
   flex-direction: column; justify-content: center; align-items: center;
@@ -374,13 +374,13 @@ h1.hero-name em {
 }
 .chip-row { display:flex; flex-wrap:wrap; gap:.5rem; }
 
-/* CHIPS — solid uses --chip-bg / --chip-fg which swap in dark mode */
+/* CHIPS - solid uses --chip-bg / --chip-fg which swap in dark mode */
 .chip {
   font-family:var(--mono); font-size:.7rem; letter-spacing:.04em;
   padding:.3rem .75rem;
   background:var(--chip-bg); color:var(--chip-fg);
 }
-/* outline chip: border + text match page text colour — always readable */
+/* outline chip: border + text match page text colour - always readable */
 .chip.out {
   background:transparent;
   color:var(--txt);
@@ -423,21 +423,33 @@ h1.hero-name em {
   gap:.5rem; padding-top:4px;
 }
 .proj-link {
-  font-family:var(--mono); font-size:.63rem; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--txt); text-decoration:none;
-  border-bottom:1px solid var(--txt);
-  padding-bottom:1px; white-space:nowrap;
-  transition:color .2s, border-color .2s;
+  display: inline-block;
+  font-family: var(--mono); font-size: .63rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--chip-fg); background: var(--chip-bg);
+  text-decoration: none;
+  padding: .9rem 1.5rem;
+  transition: background .2s, transform .2s;
+  white-space: nowrap;
 }
-.proj-link:hover { color:var(--red); border-color:var(--red); }
+.proj-link:hover {
+  background: var(--red);
+  color: #fff;
+  transform: translateY(-2px);
+}
 
 /* inline link shown only on mobile */
 a.proj-link-inline {
-  display:none;
-  margin-top:.7rem;
-  font-family:var(--mono); font-size:.6rem; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--red); text-decoration:none;
-  border-bottom:1px solid var(--red); padding-bottom:1px;
+  display: none;
+  margin-top: 1rem;
+  font-family: var(--mono); font-size: .63rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--chip-fg); background: var(--chip-bg);
+  text-decoration: none;
+  padding: .9rem 1.5rem;
+  transition: background .2s;
+}
+a.proj-link-inline:hover {
+  background: var(--red);
+  color: #fff;
 }
 
 /* ── EDUCATION ──────────────────────── */
@@ -498,7 +510,7 @@ footer {
 }
 .ft-name {
   font-family:var(--display); font-size:1.1rem; letter-spacing:.1em;
-  color:var(--nav-txt); margin-bottom:.25rem;
+  color:var(--nav-txt); margin-bottom:.25rem;text-decoration:none;
 }
 .ft-copy { font-family:var(--mono); font-size:.63rem; letter-spacing:.1em; color:var(--nav-dim); }
 .ft-links { display:flex; flex-wrap:wrap; }
@@ -580,7 +592,7 @@ footer {
     <!-- <div>
         <img src="pfp.jpg" class="image">
     </div> -->
-  <div class="nav-logo">A.S</div>
+  <div class="nav-logo"><a href="#hero" class="ft-name">A.S</a></div>
 
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -590,7 +602,7 @@ footer {
     <li><a href="#contact">Contact</a></li>
   </ul>
 
-  <!-- theme toggle — always visible -->
+  <!-- theme toggle - always visible -->
   <button class="theme-btn" id="themeBtn" aria-label="Toggle colour theme">
     <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="5"/>
@@ -605,7 +617,7 @@ footer {
     <span id="themeLbl">Light</span>
   </button>
 
-  <!-- hamburger — visible only on mobile via CSS -->
+  <!-- hamburger - visible only on mobile via CSS -->
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -668,22 +680,22 @@ footer {
       <div class="about-cell reveal">
         <div class="a-num">01.</div>
         <h3>Academic Background</h3>
-        <p>MCA student at Mar Athanasius College of Engineering, KTU (2025–27). BSc Physics from Nirmala College, Muvattupuzha — a background that sharpens how I think about systems and data.</p>
+        <p>MCA student at Mar Athanasius College of Engineering,Kothamangalam.</p> <p>BSc Physics from Nirmala College, Muvattupuzha.</p>
       </div>
       <div class="about-cell reveal" style="transition-delay:.1s">
         <div class="a-num">02.</div>
         <h3>What I Build</h3>
-        <p>Full-stack web apps using Django, React, and Node.js. I lean toward clean architecture, meaningful UX, and projects that solve actual problems — from IoT water monitoring to AI literacy tools.</p>
+        <p>Full-stack web apps using Django, React and Node.js. I lean toward clean architecture, meaningful UX and projects that solve actual problems from IoT water monitoring to AI literacy tools.</p>
       </div>
       <div class="about-cell reveal" style="transition-delay:.15s">
         <div class="a-num">03.</div>
         <h3>Beyond Code</h3>
-        <p>Participated in NASA Space Apps Challenge 2025. Submitted Literacy Companion to Google Solution Challenge 2026. Hobbies include gaming, music, and films.</p>
+        <p>Participated in NASA Space Apps Challenge 2025. Submitted Literacy Companion to Google Solution Challenge 2026. Hobbies include gaming, music and films.</p>
       </div>
       <div class="about-cell reveal" style="transition-delay:.2s">
         <div class="a-num">04.</div>
         <h3>Currently Focused On</h3>
-        <p>Deepening expertise in AI/ML integration, RAG systems, and data visualization. Planning a RAG-based main project for Semester 4 at MACE.</p>
+        <p>Deepening expertise in AI/ML integration and data visualization. Planning a RAG-based main project for Semester 4 at MACE.</p>
       </div>
     </div>
   </div>
@@ -745,7 +757,7 @@ footer {
           <div class="proj-name">Link2QR</div>
           <p class="proj-desc">Django web app that converts URLs and text into QR codes and barcodes. Deployed on Render.</p>
           <div class="p-chips"><span class="p-chip">Django</span><span class="p-chip">Python</span><span class="p-chip">Render</span></div>
-          <a href="https://link2qr-scqm.onrender.com/" target="_blank" rel="noopener" class="proj-link-inline">View Live ↗</a>
+          <div><a href="https://link2qr-scqm.onrender.com/" target="_blank" rel="noopener" class="proj-link-inline">View Live ↗</a></div>
         </div>
         <div class="proj-link-col"><a href="https://link2qr-scqm.onrender.com/" target="_blank" rel="noopener" class="proj-link">View Live ↗</a></div>
       </div>
@@ -755,7 +767,7 @@ footer {
         <div>
           <div class="proj-type">Full-Stack · Micro-Project</div>
           <div class="proj-name">Text Share</div>
-          <p class="proj-desc">Full-stack text-sharing platform with JWT auth, UUID shareable links, dark mode, and paste history dashboard. Frontend on Vite/React, backend on Railway.</p>
+          <p class="proj-desc">Full-stack text-sharing platform with JWT auth, UUID shareable links, dark mode and paste history dashboard. Frontend on Vite/React, backend on Railway.</p>
           <div class="p-chips"><span class="p-chip">React</span><span class="p-chip">Node.js</span><span class="p-chip">MySQL</span><span class="p-chip">JWT</span></div>
         </div>
         <div class="proj-link-col"></div>
@@ -766,7 +778,7 @@ footer {
         <div>
           <div class="proj-type">AI · PWA · Google Solution Challenge 2026</div>
           <div class="proj-name">Literacy Companion</div>
-          <p class="proj-desc">AI-powered literacy tool built with React 19, TypeScript, Firebase, and Gemini API. Submitted to Google Solution Challenge 2026 under team Entropic Minds.</p>
+          <p class="proj-desc">AI-powered literacy tool built with React 19, TypeScript, Firebase and Gemini API. Submitted to Google Solution Challenge 2026 under team Entropic Minds.</p>
           <div class="p-chips"><span class="p-chip">React 19</span><span class="p-chip">TypeScript</span><span class="p-chip">Firebase</span><span class="p-chip">Gemini API</span></div>
           <a href="https://literacy-companion.web.app/" target="_blank" rel="noopener" class="proj-link-inline">View Live ↗</a>
         </div>
@@ -790,7 +802,7 @@ footer {
         <div>
           <div class="proj-type">IoT · Undergraduate Final Year</div>
           <div class="proj-name">IoT Water Quality Analyzer</div>
-          <p class="proj-desc">ESP8266 NodeMCU-based system monitoring pH, turbidity, TDS, and temperature in real time, with LCD display and IoT webpage output.</p>
+          <p class="proj-desc">ESP8266 NodeMCU-based system monitoring pH, turbidity, TDS and temperature in real time, with LCD display and IoT webpage output.</p>
           <div class="p-chips"><span class="p-chip">ESP8266</span><span class="p-chip">IoT</span><span class="p-chip">Sensors</span><span class="p-chip">C</span></div>
         </div>
         <div class="proj-link-col"></div>
@@ -809,19 +821,19 @@ footer {
     </div>
     <div>
       <div class="edu-row reveal">
-        <div class="edu-yr">2025 — 2027</div>
+        <div class="edu-yr">2025 - 2027</div>
         <div>
           <div class="edu-deg">Master of Computer Applications</div>
           <div class="edu-inst">Mar Athanasius College of Engineering (MACE), Kothamangalam</div>
-          <p class="edu-body">APJ Abdul Kalam Technological University · Currently in Semester 2. Subjects include Advanced Computer Networks, Advanced DBMS, Advanced OS, and Data Visualization &amp; Predictive Analytics.</p>
+          <p class="edu-body">Currently focusing on Academic Curriculum &amp; Internship. </p>
         </div>
       </div>
       <div class="edu-row reveal" style="transition-delay:.1s">
-        <div class="edu-yr">2022 — 2025</div>
+        <div class="edu-yr">2022 - 2025</div>
         <div>
           <div class="edu-deg">BSc Physics</div>
           <div class="edu-inst">Nirmala College, Muvattupuzha</div>
-          <p class="edu-body">Strong foundation in mathematics and analytical thinking — a differentiator in approaching computing problems from first principles.</p>
+          <p class="edu-body">Strong foundation in mathematics and analytical thinking - a differentiator in approaching computing problems from first principles.</p>
         </div>
       </div>
     </div>
@@ -853,8 +865,9 @@ footer {
       <p class="contact-sub">Find me on GitHub for my code and LinkedIn for professional updates. Open to internship opportunities and interesting collaborations.</p>
     </div>
     <div class="contact-right reveal" style="transition-delay:.1s">
-      <a href="https://github.com/abhhiinv" target="_blank" rel="noopener" class="btn filled">GitHub — abhhiinv</a>
-      <a href="https://linkedin.com/in/abhhiinv" target="_blank" rel="noopener" class="btn">LinkedIn — abhhiinv</a>
+      <a href="https://github.com/abhhiinv" target="_blank" rel="noopener" class="btn filled">GitHub - abhhiinv</a>
+      <a href="https://linkedin.com/in/abhhiinv" target="_blank" rel="noopener" class="btn">LinkedIn - abhhiinv</a>
+      <a href="mailto:abhinavsajeev2004@gmail.com" target="_blank" rel="noopener" class="btn">Email </a>
     </div>
   </div>
 </section>
@@ -865,7 +878,7 @@ footer {
 <footer>
   <div>
     <div class="ft-name">Abhinav Sajeev</div>
-    <div class="ft-copy">© 2026 · MCA Student · MACE, Kothamangalam</div>
+    <div class="ft-copy">© 2026 · MCA Student · MACE Kothamangalam</div>
   </div>
   <div class="ft-links">
     <a href="https://github.com/abhhiinv" target="_blank" rel="noopener" class="ft-link">GitHub</a>
