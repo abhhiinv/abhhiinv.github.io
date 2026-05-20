@@ -2280,6 +2280,10 @@ textarea {
     --sp-9: 72px;
   }
 
+  .nav-actions {
+    margin-left: auto;
+  }
+
   .nav-links {
     display: none;
   }
