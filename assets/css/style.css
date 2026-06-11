@@ -8,7 +8,7 @@
 /* ─── Design Tokens ─────────────────────────────────────────────────────── */
 :root {
   /* Palette — dark mode (default) */
-  --bg: #060606;
+  --bg: #111111;
   /* near-black background */
   --bg-2: #161616;
   /* slightly lighter surface */
@@ -95,7 +95,7 @@
 
 /* Light theme overrides */
 [data-theme="light"] {
-  --bg: #fcfcf7;
+  --bg: #f2f0ed;
   --bg-2: #fdf0c8;
   --bg-3: #fffcf6;
   --border: rgba(0, 0, 0, .08);
@@ -805,7 +805,7 @@ textarea {
 
 .hero-social-link i {
   font-size: 18px;
-  color: var(--text-2);
+  color: var(--text);
 }
 
 .hero-social-link:hover {
@@ -850,6 +850,11 @@ textarea {
 .typed-cursor {
   color: var(--accent);
   animation: blink .9s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
 
 /* ─── Intro Section (Scroll Reveal) ───────────────────────────────────────── */
