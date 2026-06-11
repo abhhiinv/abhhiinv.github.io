@@ -21,6 +21,27 @@
 
 'use strict';
 
+/* ─── 0. Smooth Scroll (Lenis) ─────────────────────────────────────────── */
+let lenis;
+function initSmoothScroll() {
+  if (typeof Lenis === 'undefined') return;
+  
+  lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    orientation: 'vertical',
+    gestureOrientation: 'vertical',
+    smoothWheel: true,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+}
+
 /* ─── 1. Loader ─────────────────────────────────────────────────────────── */
 function initLoader() {
   const loader = document.getElementById('loader');
@@ -76,11 +97,20 @@ function initNav() {
   /* — Smooth scroll for all anchor links — */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
-      const target = document.querySelector(anchor.getAttribute('href'));
+      const targetId = anchor.getAttribute('href');
+      const target = document.querySelector(targetId);
       if (!target) return;
       e.preventDefault();
       closeDrawer();
-      target.scrollIntoView({ behavior: 'smooth' });
+      
+      if (lenis) {
+        lenis.scrollTo(targetId, {
+          offset: -getNavHeight(),
+          duration: 1.5,
+        });
+      } else {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
     });
   });
 
@@ -162,9 +192,9 @@ function initTyping() {
   if (!el) return;
 
   const phrases = [
-    'Studying MCA at MACE.',
-    'Bulding solutions.',
-    'Exploring AI.'
+    'Full-stack Developer.',
+    'AI Enthusiast.',
+    'MCA Student.','MACE Kothamangalam.'
   ];
 
   let phraseIndex = 0;
@@ -574,6 +604,7 @@ function respectReducedMotion() {
 /* ─── Init all ──────────────────────────────────────────────────────────── */
 function init() {
   respectReducedMotion();
+  initSmoothScroll();
   initLoader();
   initNav();
   initTheme();

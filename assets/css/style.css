@@ -8,11 +8,11 @@
 /* ─── Design Tokens ─────────────────────────────────────────────────────── */
 :root {
   /* Palette — dark mode (default) */
-  --bg: #0c0c0f;
+  --bg: #060606;
   /* near-black background */
-  --bg-2: #111116;
+  --bg-2: #161616;
   /* slightly lighter surface */
-  --bg-3: #18181f;
+  --bg-3: #181818;
   /* card background */
   --border: rgba(255, 255, 255, .07);
   --border-hover: rgba(255, 255, 255, .14);
@@ -21,7 +21,7 @@
   /* warm off-white — not harsh pure white */
   --text-2: #9d9a93;
   /* secondary text */
-  --text-3: #5a5850;
+  --text-3: #808080;
   /* placeholder / muted */
 
   /* Accent — warm amber/gold, distinct and uncommon in dev portfolios */
@@ -95,14 +95,14 @@
 
 /* Light theme overrides */
 [data-theme="light"] {
-  --bg: #faf9f7;
-  --bg-2: #f4f2ee;
-  --bg-3: #ffffff;
+  --bg: #fcfcf7;
+  --bg-2: #fdf0c8;
+  --bg-3: #fffcf6;
   --border: rgba(0, 0, 0, .08);
   --border-hover: rgba(0, 0, 0, .14);
 
   --text: #1a1916;
-  --text-2: #6b6860;
+  --text-2: #3f3f3e;
   --text-3: #a8a49d;
 
   --accent-dim: rgba(232, 169, 77, .12);
@@ -123,7 +123,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: var(--nav-h);
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
@@ -694,155 +693,158 @@ textarea {
 /* ─── Hero ───────────────────────────────────────────────────────────────── */
 .hero {
   position: relative;
+  min-height: 100vh;
   padding-top: var(--nav-h);
-  padding-bottom: var(--sp-10);
   overflow: hidden;
-}
-
-/* Grid lines background */
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
-  pointer-events: none;
-}
-
-/* Ambient orbs */
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-  animation: orbFloat 8s ease-in-out infinite;
-}
-
-.orb-1 {
-  width: 500px;
-  height: 500px;
-  background: rgba(232, 169, 77, .07);
-  top: -100px;
-  right: 5%;
-  animation-delay: 0s;
-}
-
-.orb-2 {
-  width: 350px;
-  height: 350px;
-  background: rgba(100, 150, 255, .05);
-  bottom: 10%;
-  left: -5%;
-  animation-delay: -3s;
-}
-
-.orb-3 {
-  width: 200px;
-  height: 200px;
-  background: rgba(232, 169, 77, .05);
-  top: 50%;
-  left: 40%;
-  animation-delay: -5s;
-}
-
-@keyframes orbFloat {
-
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  33% {
-    transform: translate(20px, -30px) scale(1.05);
-  }
-
-  66% {
-    transform: translate(-15px, 20px) scale(.95);
-  }
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 0 var(--sp-6);
-  padding-top: var(--sp-9);
-}
-
-/* Availability eyebrow */
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-2);
-  font-family: 'DM Mono', monospace;
-  font-size: var(--fs-xs);
-  color: var(--accent);
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  background: var(--accent-dim);
-  border: 1px solid rgba(232, 169, 77, .2);
-  padding: var(--sp-2) var(--sp-4);
-  border-radius: 99px;
-  margin-bottom: var(--sp-6);
-}
-
-.dot-pulse {
-  width: 7px;
-  height: 7px;
-  background: var(--accent);
-  border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: .5;
-    transform: scale(.7);
-  }
-}
-
-/* Hero heading */
-.hero-title {
   display: flex;
   flex-direction: column;
-  font-size: var(--fs-hero);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -.04em;
+  background-color: var(--bg);
+}
+
+/* ── Giant typography background marquee ── */
+.hero-giant-text-wrap {
+  position: absolute;
+  top: 55%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  z-index: 1; /* Bring text to front to overlap image more noticeably */
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: difference; /* Create that cool 'white on black/black on white' look */
+}
+
+.hero-giant-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 20s linear infinite;
+  will-change: transform;
+}
+
+.hero-giant-text {
+  font-size: clamp(10rem, 15vw, 45rem); /* Massive text */
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.8;
+  color: #fff;
+  white-space: nowrap;
+  opacity: 0.9;
+  padding-right: 0.1em;
+}
+
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-giant-track { animation: none; }
+}
+
+/* ── Centre profile image ── */
+.hero-photo-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0; /* Text is z-index 1, so it overlaps */
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-photo-inner {
+  width: auto;
+  height: 120vh; /* Almost full height */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: visible;
+  position: relative;
+}
+
+.hero-img {
+  height: 100%;
+  width: auto;
+  max-width: none;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.1) brightness(0.9);
+  transition: transform var(--t-slow) var(--ease);
+}
+
+/* .hero:hover .hero-img {
+  transform: scale(1.02);
+} */
+
+/* ── Bottom-left socials ── */
+.hero-socials {
+  position: absolute;
+  bottom: var(--sp-8);
+  left: var(--sp-8);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.hero-social-link {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-family: 'DM Mono', monospace;
+  font-size: var(--fs-xs);
   color: var(--text);
-  margin-bottom: var(--sp-6);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  transition: opacity var(--t-fast), transform var(--t-base);
 }
 
-.hero-em {
-  font-style: italic;
-  color: var(--accent);
-  font-weight: 300;
-  letter-spacing: -.02em;
-}
-
-/* Hero sub */
-.hero-sub {
-  font-size: var(--fs-xl);
+.hero-social-link i {
+  font-size: 18px;
   color: var(--text-2);
-  max-width: 560px;
-  line-height: 1.6;
-  margin-bottom: var(--sp-7);
 }
 
-/* Typing animation */
+.hero-social-link:hover {
+  opacity: 0.7;
+  transform: translateX(4px);
+}
+
+/* ── Bottom-right role block ── */
+.hero-role-wrap {
+  position: absolute;
+  bottom: var(--sp-8);
+  right: var(--sp-8);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--sp-2);
+  text-align: right;
+}
+
+.hero-role-title {
+  font-size: clamp(var(--fs-2xl), 4vw, var(--fs-4xl));
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: var(--text);
+}
+
+.hero-role-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* Typing animation adjustments */
 #typed-role {
-  color: var(--accent);
-  font-style: italic;
+  color: var(--text);
 }
 
 .typed-cursor {
@@ -850,103 +852,131 @@ textarea {
   animation: blink .9s step-end infinite;
 }
 
-@keyframes blink {
+/* ─── Intro Section (Scroll Reveal) ───────────────────────────────────────── */
+.intro-section {
+  padding: var(--sp-10) 0;
+  background: var(--bg);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
 
-  0%,
-  100% {
-    opacity: 1;
+.intro-label {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-8);
+}
+
+.intro-content {
+  max-width: 900px;
+}
+
+.intro-text {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.15); /* Muted base color */
+  margin-bottom: var(--sp-8);
+}
+
+.intro-text span {
+  color: inherit;
+  /* Use scroll-timeline if supported */
+}
+
+@supports (animation-timeline: view()) {
+  .intro-text {
+    animation: textHighlight linear both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 40%;
+  }
+}
+
+@keyframes textHighlight {
+  to {
+    color: var(--text);
+  }
+}
+
+/* Highlight specific words in accent color */
+.intro-text span {
+  position: relative;
+  display: inline-block;
+}
+
+@supports (animation-timeline: view()) {
+  .intro-text span {
+    animation: wordHighlight linear both;
+    animation-timeline: view();
+    animation-range: entry 30% cover 50%;
+  }
+}
+
+@keyframes wordHighlight {
+  to {
+    color: var(--accent);
+  }
+}
+
+.intro-sub {
+  font-size: var(--fs-lg);
+  color: var(--text-2);
+  max-width: 600px;
+  margin-bottom: var(--sp-8);
+  line-height: 1.6;
+}
+
+.intro-actions {
+  margin-top: var(--sp-6);
+}
+
+/* ── Mobile: stack everything ── */
+@media (max-width: 768px) {
+  .hero-giant-text {
+    font-size: clamp(6rem, 25vw, 15rem);
+  }
+  
+  .hero-photo-inner {
+    height: 100vh;
   }
 
-  50% {
-    opacity: 0;
+  .hero-socials {
+    bottom: var(--sp-6);
+    left: var(--sp-6);
+  }
+
+  .hero-role-wrap {
+    bottom: var(--sp-6);
+    right: var(--sp-6);
+    max-width: 200px;
+  }
+  
+  .hero-role-title {
+    font-size: var(--fs-xl);
+  }
+  
+  .intro-text {
+    font-size: var(--fs-3xl);
   }
 }
 
-/* Hero CTAs */
-.hero-cta {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-4);
-  flex-wrap: wrap;
-  margin-bottom: var(--sp-9);
-}
+/* ── kept stubs ── */
+.scroll-indicator { display: none; }
+.hero-marquee-wrap { display: none; }
+.hero-stats-strip { display: none; }
 
-/* Stats row */
-.hero-stats {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-7);
-}
-
-.stat {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.stat-num {
-  font-size: var(--fs-3xl);
-  font-weight: 800;
-  color: var(--text);
-  letter-spacing: -.04em;
-  line-height: 1;
-}
-
-.stat-num::after {
-  content: '+';
-  color: var(--accent);
-}
-
-.stat-label {
-  font-family: 'DM Mono', monospace;
-  font-size: var(--fs-xs);
-  color: var(--text-3);
-  text-transform: uppercase;
-  letter-spacing: .1em;
-}
-
-.stat-divider {
-  width: 1px;
-  height: 40px;
-  background: var(--border);
-}
-
-/* Scroll indicator */
-.scroll-indicator {
-  position: absolute;
-  bottom: var(--sp-7);
-  right: var(--sp-6);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--sp-2);
-  color: var(--text-3);
-  transition: color var(--t-fast);
-  z-index: 10;
-}
-
-.scroll-indicator:hover {
-  color: var(--accent);
-}
-
-.scroll-line {
-  width: 1px;
-  height: 48px;
-  background: linear-gradient(to bottom, transparent, var(--text-3));
-  animation: scrollLine 2s ease-in-out infinite;
-}
-
+/* Scroll indicator stub — kept so browser doesn't choke */
 @keyframes scrollLine {
   0% {
     transform: scaleY(0);
     transform-origin: top;
   }
-
   50% {
     transform: scaleY(1);
     transform-origin: top;
   }
-
   50.001% {
     transform: scaleY(1);
     transform-origin: bottom;

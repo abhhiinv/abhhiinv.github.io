@@ -14,6 +14,7 @@
   <script src="https://unpkg.com/@phosphor-icons/web@2.0.3/src/index.js" defer></script>
 
   <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js" defer></script>
 </head>
 <body>
 
@@ -72,61 +73,77 @@
 
     <!-- HERO -->
     <section class="hero section-full" id="hero">
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="orb orb-1" aria-hidden="true"></div>
-      <div class="orb orb-2" aria-hidden="true"></div>
-      <div class="orb orb-3" aria-hidden="true"></div>
 
-      <div class="hero-content">
-        <!-- <p class="hero-eyebrow reveal-up">
-          <span class="dot-pulse" aria-hidden="true"></span>
-          Open to internships - May&ndash;July 2026
-        </p> -->
-
-        <h1 class="hero-title reveal-up delay-1">
-          <span>Hi, I&rsquo;m</span>
-          <span class="hero-em">Abhinav Sajeev.</span>
-        </h1>
-
-        <p class="hero-sub reveal-up delay-2">
-          MCA student at MACE, Kothamangalam - building web apps, AI tools and IoT projects.
-          <span id="typed-role" aria-live="polite"></span><span class="typed-cursor" aria-hidden="true">|</span>
-        </p>
-
-        <div class="hero-cta reveal-up delay-3">
-          <a href="#projects" class="btn btn-primary">
-            View Projects
-            <i class="ph ph-arrow-right" aria-hidden="true"></i>
-          </a>
-          <a href="https://github.com/abhhiinv" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-            <i class="ph ph-github-logo" aria-hidden="true"></i>
-            GitHub
-          </a>
-        </div>
-
-        <div class="hero-stats reveal-up delay-4">
-          <div class="stat">
-            <span class="stat-num" data-count="6">0</span>
-            <span class="stat-label">Projects</span>
-          </div>
-          <span class="stat-divider" aria-hidden="true"></span>
-          <div class="stat">
-            <span class="stat-num" data-count="2">0</span>
-            <span class="stat-label">Hackathons</span>
-          </div>
-          <span class="stat-divider" aria-hidden="true"></span>
-          <div class="stat">
-            <span class="stat-num" data-count="1">0</span>
-            <span class="stat-label">NPTEL Cert</span>
-          </div>
+      <!-- Giant typography background marquee -->
+      <div class="hero-giant-text-wrap" aria-hidden="true">
+        <div class="hero-giant-track">
+          <span class="hero-giant-text">Abhinav Sajeev -</span>
+          <span class="hero-giant-text">Abhinav Sajeev -</span>
         </div>
       </div>
 
-      <a href="#about" class="scroll-indicator" aria-label="Scroll to about">
-        <span class="scroll-line" aria-hidden="true"></span>
-        <span class="scroll-label">Scroll</span>
-      </a>
+      <!-- Centre: large image/profile wrap -->
+      <div class="hero-photo-wrap" aria-hidden="true">
+        <div class="hero-photo-inner">
+          <img src="assets/img/bg.png" alt="Abhinav Sajeev" class="hero-img">
+        </div>
+      </div>
+
+      <!-- Bottom-left: social links -->
+      <div class="hero-socials">
+        <a href="https://linkedin.com/in/abhhiinv" class="hero-social-link" target="_blank" rel="noopener noreferrer">
+          <i class="ph ph-linkedin-logo" aria-hidden="true"></i>
+          LinkedIn
+        </a>
+        <a href="https://github.com/abhhiinv" class="hero-social-link" target="_blank" rel="noopener noreferrer">
+          <i class="ph ph-github-logo" aria-hidden="true"></i>
+          GitHub
+        </a>
+        <!-- <a href="https://instagram.com/abhhiinv" class="hero-social-link" target="_blank" rel="noopener noreferrer">
+          <i class="ph ph-instagram-logo" aria-hidden="true"></i>
+          Instagram
+        </a> -->
+      </div>
+
+      <!-- Bottom-right: role block -->
+      <div class="hero-role-wrap">
+        <div class="hero-role-line" aria-hidden="true"></div>
+        <p class="hero-role-title">
+          <span id="typed-role" aria-live="polite"></span><span class="typed-cursor" aria-hidden="true">|</span>
+        </p>
+        <p class="hero-role-sub">Developer & AI Explorer</p>
+      </div>
+
     </section>
+
+    <!-- INTRO / TEXT REVEAL
+    <section class="intro-section" id="intro">
+      <div class="container">
+        <div class="intro-label">
+          <span class="label-num"></span>
+          <span class="label-text">Intro</span>
+        </div>
+        
+        <div class="intro-content">
+          <h2 class="intro-text">
+            I'm a versatile <span>developer</span> who 
+            partners with <span>founders</span> to turn ideas into 
+            <span>real products</span>. I focus on 
+            <span>clear interfaces</span>, 
+            <span>sharp decisions</span>, and 
+            <span>fast execution</span>.
+          </h2>
+          
+          <p class="intro-sub">
+            Bringing your vision to life quickly and efficiently whether it's branding, apps or websites we've got it covered, delivering smooth and effective solutions from start to finish.
+          </p>
+          
+          <div class="intro-actions">
+            <a href="#projects" class="btn btn-outline btn-lg">See my Work</a>
+          </div>
+        </div>
+      </div>
+    </section> -->
 
     <!-- ABOUT -->
     <section class="section" id="about">
