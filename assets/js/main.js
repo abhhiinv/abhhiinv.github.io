@@ -163,9 +163,22 @@ function initTheme() {
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem(STORAGE_KEY, theme);
-    // Swap icon
+    
+    // Swap theme icon
     if (icon) {
       icon.className = theme === 'light' ? 'ph ph-moon' : 'ph ph-sun';
+    }
+
+    // Swap nav logo
+    const navLogo = document.getElementById('navLogo');
+    if (navLogo) {
+      navLogo.src = theme === 'light' ? 'assets/img/LightBG.svg' : 'assets/img/DarkBG.svg';
+    }
+
+    // Swap footer logo
+    const footerLogo = document.getElementById('footerLogo');
+    if (footerLogo) {
+      footerLogo.src = theme === 'light' ? 'assets/img/LightBG.svg' : 'assets/img/DarkBG.svg';
     }
   }
 

@@ -25,7 +25,7 @@
   /* placeholder / muted */
 
   /* Accent — warm amber/gold, distinct and uncommon in dev portfolios */
-  --accent: #e8a94d;
+  --accent: #ffbb55;
   --accent-dim: rgba(232, 169, 77, .15);
   --accent-glow: rgba(232, 169, 77, .08);
 
@@ -96,7 +96,7 @@
 /* Light theme overrides */
 [data-theme="light"] {
   --bg: #f2f0ed;
-  --bg-2: #fdf0c8;
+  --bg-2: #fff9e8;
   --bg-3: #fffcf6;
   --border: rgba(0, 0, 0, .08);
   --border-hover: rgba(0, 0, 0, .14);
@@ -759,7 +759,7 @@ textarea {
 
 .hero-photo-inner {
   width: auto;
-  height: 120vh; /* Almost full height */
+  height: 100vh; /* Almost full height */
   display: flex;
   align-items: flex-end;
   justify-content: center;
