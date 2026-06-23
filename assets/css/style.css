@@ -12,7 +12,7 @@
   /* near-black background */
   --bg-2: #161616;
   /* slightly lighter surface */
-  --bg-3: #181818;
+  --bg-3: #1d1d1d;
   /* card background */
   --border: rgba(255, 255, 255, .07);
   --border-hover: rgba(255, 255, 255, .14);
@@ -25,7 +25,7 @@
   /* placeholder / muted */
 
   /* Accent — warm amber/gold, distinct and uncommon in dev portfolios */
-  --accent: #ffbb55;
+  --accent: #ee3d3d;
   --accent-dim: rgba(232, 169, 77, .15);
   --accent-glow: rgba(232, 169, 77, .08);
 
@@ -1213,7 +1213,7 @@ textarea {
 
 .skill-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent), rgba(232, 169, 77, .6));
+  background: linear-gradient(90deg, var(--accent), rgba(227, 115, 115, 0.659));
   border-radius: 99px;
   width: 0;
   transition: width 1s var(--ease-out);
