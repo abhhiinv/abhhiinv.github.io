@@ -559,6 +559,9 @@ textarea {
 
 .section {
   padding: var(--sp-10) 0;
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
 }
 
 .section-full {
@@ -570,6 +573,8 @@ textarea {
 
 .section-alt {
   background: var(--bg-2);
+  position: relative;
+  z-index: 1;
 }
 
 /* Section meta label */
@@ -692,13 +697,15 @@ textarea {
 
 /* ─── Hero ───────────────────────────────────────────────────────────────── */
 .hero {
-  position: relative;
+  position: sticky;
+  top: 0;
   min-height: 100vh;
   padding-top: var(--nav-h);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   background-color: var(--bg);
+  z-index: 0;
 }
 
 /* ── Giant typography background marquee ── */
@@ -2051,6 +2058,9 @@ textarea {
 #footer {
   border-top: 1px solid var(--border);
   padding: var(--sp-7) 0;
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
 }
 
 .footer-inner {

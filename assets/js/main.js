@@ -39,6 +39,16 @@ function initSmoothScroll() {
     requestAnimationFrame(raf);
   }
 
+  const hero = document.getElementById('hero');
+
+  lenis.on('scroll', (e) => {
+    if (hero) {
+      const scrollY = e.scroll || window.scrollY;
+      // Scroll the hero up at 40% of the normal scroll speed
+      hero.style.transform = `translateY(${-scrollY * 0.4}px)`;
+    }
+  });
+
   requestAnimationFrame(raf);
 }
 
